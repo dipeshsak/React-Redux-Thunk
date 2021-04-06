@@ -2,6 +2,7 @@ import React from 'react'
 import './App.css'
 import Age from './Age'
 import {connect} from 'react-redux'
+import * as actionCreator from './store/actions/actions'
 
 class App extends React.Component{
   
@@ -51,8 +52,8 @@ class App extends React.Component{
 
 const mapDispatchToProps =(dispatch)=>{
   return{
-    onInc:()=>dispatch({type:"INC"}),
-    onDec :()=>dispatch({type:"DEC"})
+    onInc:()=>dispatch(actionCreator.ageUp(1)),
+    onDec :()=>dispatch(actionCreator.ageDown(1))
   }
 }
 export default connect(null,mapDispatchToProps)(App)
